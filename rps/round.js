@@ -54,41 +54,50 @@ class Round{
     determineWinner() {
         //*********************************ADD CODE HERE *************************************/
         // Use this.playerSelection and this.computerSelection to return the appropriate outcome from the Outcomes enumerator above.
-        if (this.playerSelection === "rock" && this.computerSelection === "paper")
+        switch (this.playerSelection)
         {
-            game.incrementComputerWins();
-            return Outcomes.COMPUTER_WINS;
-        } else if(this.playerSelection === "paper" && this.computerSelection === "scissors"){
-            game.incrementComputerWins();
-            return Outcomes.COMPUTER_WINS;
-        }
-        else if(this.playerSelection === "scissors" && this.computerSelection === "rock"){
-            game.incrementComputerWins();
-            return Outcomes.COMPUTER_WINS;
-        }
-        else if(this.playerSelection === "rock" && this.computerSelection === "rock"){
-            game.incrementCountOfTies();
-            return Outcomes.TIE;
-        }
-        else if(this.playerSelection === "scissors" && this.computerSelection === "scissors"){
-            game.incrementCountOfTies();
-            return Outcomes.TIE;
-        }
-        else if(this.playerSelection === "paper" && this.computerSelection === "paper"){
-            game.incrementCountOfTies();
-            return Outcomes.TIE;
-        }
-        else if(this.playerSelection === "paper" && this.computerSelection === "rock"){
-            game.incrementPlayerWins();
-            return Outcomes.PLAYER_WINS;
-        }
-        else if(this.playerSelection === "rock" && this.computerSelection === "scissors"){
-            game.incrementPlayerWins();
-            return Outcomes.PLAYER_WINS;
-        }
-        else if(this.playerSelection === "scissors" && this.computerSelection === "paper"){
-            game.incrementPlayerWins();
-            return Outcomes.PLAYER_WINS;
+            case "rock":
+                if(this.computerSelection === "paper")
+                {
+                    game.incrementComputerWins();
+                    return Outcomes.COMPUTER_WINS;
+                } else if(this.computerSelection === "rock")
+                {
+                    game.incrementCountOfTies();
+                    return Outcomes.TIE;
+                } else {
+                    game.incrementPlayerWins();
+                    return Outcomes.PLAYER_WINS;
+                }
+                break;
+            case "paper":
+                if(this.computerSelection === "scissors")
+                {
+                    game.incrementComputerWins();
+                    return Outcomes.COMPUTER_WINS;
+                } else if(this.computerSelection === "paper")
+                {
+                    game.incrementCountOfTies();
+                    return Outcomes.TIE;
+                } else {
+                    game.incrementPlayerWins();
+                    return Outcomes.PLAYER_WINS;
+                }
+                break;
+            case "scissors":
+                if(this.computerSelection === "rock")
+                {
+                    game.incrementComputerWins();
+                    return Outcomes.COMPUTER_WINS;
+                } else if(this.computerSelection === "scissors")
+                {
+                    game.incrementCountOfTies();
+                    return Outcomes.TIE;
+                } else {
+                    game.incrementPlayerWins();
+                    return Outcomes.PLAYER_WINS;
+                }
+                break;
         }
     }
 
