@@ -81,8 +81,10 @@ function playRound(roundNumber) {
             break;
         case "computer":
             game.incrementComputerWins();
+            break;
         case "tie":
             game.incrementCountOfTies();
+            break;
     }
     //*********************************ADD CODE HERE *************************************/
     // Display the Round Results from the properties stored in the Round object
