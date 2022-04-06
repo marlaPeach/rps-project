@@ -59,42 +59,33 @@ class Round{
             case "rock":
                 if(this.computerSelection === "paper")
                 {
-                    game.incrementComputerWins();
                     return Outcomes.COMPUTER_WINS;
                 } else if(this.computerSelection === "rock")
                 {
-                    game.incrementCountOfTies();
                     return Outcomes.TIE;
                 } else {
-                    game.incrementPlayerWins();
                     return Outcomes.PLAYER_WINS;
                 }
                 break;
             case "paper":
                 if(this.computerSelection === "scissors")
                 {
-                    game.incrementComputerWins();
                     return Outcomes.COMPUTER_WINS;
                 } else if(this.computerSelection === "paper")
                 {
-                    game.incrementCountOfTies();
                     return Outcomes.TIE;
                 } else {
-                    game.incrementPlayerWins();
                     return Outcomes.PLAYER_WINS;
                 }
                 break;
             case "scissors":
                 if(this.computerSelection === "rock")
                 {
-                    game.incrementComputerWins();
                     return Outcomes.COMPUTER_WINS;
                 } else if(this.computerSelection === "scissors")
                 {
-                    game.incrementCountOfTies();
                     return Outcomes.TIE;
                 } else {
-                    game.incrementPlayerWins();
                     return Outcomes.PLAYER_WINS;
                 }
                 break;

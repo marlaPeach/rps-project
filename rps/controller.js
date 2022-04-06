@@ -15,18 +15,17 @@ function playGame() {
     // If the input is valid, use game.setNumberOfRounds(numberOfRounds) to set the number of rounds for the game 
     //  >> Else, try to get the number of rounds for the suer again
     numberOfRounds = window.prompt("Please enter the number of rounds you'd like to play."); //Prompt for user input.
-    
+    numberOfRounds = parseInt(numberOfRounds, 10); //Cast string to integer.
     //If statement for validation check.
     if(game.isNumberOfRoundsValid(numberOfRounds))
     {
-        numberOfRounds = parseInt(numberOfRounds, 10); //Cast string to integer.
         game.setNumberOfRounds(numberOfRounds);
     }
     else {
         numberOfRounds = window.prompt("Sorry, that value is invalid. Please enter a number from 1-5."); //Prompt for user input again.
+        numberOfRounds = parseInt(numberOfRounds, 10); //Cast string to integer.
         if (game.isNumberOfRoundsValid(numberOfRounds))
         {
-            numberOfRounds = parseInt(numberOfRounds, 10); //Cast string to integer.
             game.setNumberOfRounds(numberOfRounds);
         } else {
             window.alert("Invalid value. Game Over!");
@@ -45,7 +44,7 @@ function playGame() {
 
     //*********************************ADD CODE HERE *************************************/
     // Display the Final Score from the properties stored in the Game object
-    console.log(`Rounds played: ${numberOfRounds}    Ties: ${game.countOfTies}`)
+    console.log(`Rounds played: ${game.numberOfRounds}    Ties: ${game.countOfTies}`)
     console.log(`Player Final Score: ${game.countOfPlayerWins}   Computer Final Score: ${game.countOfComputerWins}`);
     if(game.countOfPlayerWins > game.countOfComputerWins)
     {
@@ -75,14 +74,22 @@ function playRound(roundNumber) {
 
     //Play the Round
     var outcome = round.determineWinner();
-
+    switch (outcome)
+    {
+        case "player":
+            game.incrementPlayerWins();
+            break;
+        case "computer":
+            game.incrementComputerWins();
+        case "tie":
+            game.incrementCountOfTies();
+    }
     //*********************************ADD CODE HERE *************************************/
     // Display the Round Results from the properties stored in the Round object
     console.log(`Player Chose: ${playerSelection}   Computer Chose: ${round.computerSelection}`);
     console.log(`Winner is: ${outcome}`);
 
 }
-
 
 
 /**
