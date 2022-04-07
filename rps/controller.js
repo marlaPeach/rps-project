@@ -67,7 +67,7 @@ function playRound(roundNumber) {
     //*********************************ADD CODE HERE *************************************/
     // Display the Current Score to the User
     console.log(`Current Round: ${roundNumber}`)
-    console.log(`Player Score: ${game.countOfPlayerWins}   Computer Score: ${game.countOfComputerWins}`);
+    console.log(`Player Score: ${game.countOfPlayerWins}   Computer Score: ${game.countOfComputerWins}   Ties: ${game.countOfTies}`);
     //Prompt for Player Selection
     var playerSelection = getPlayerSelection();
     var round = new Round(playerSelection);
