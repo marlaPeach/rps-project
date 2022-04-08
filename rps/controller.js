@@ -16,22 +16,11 @@ function playGame() {
     //  >> Else, try to get the number of rounds for the suer again
     numberOfRounds = window.prompt("Please enter the number of rounds you'd like to play."); //Prompt for user input.
     numberOfRounds = parseInt(numberOfRounds, 10); //Cast string to integer.
-    //If statement for validation check.
-    if(game.isNumberOfRoundsValid(numberOfRounds))
+    while(!game.isNumberOfRoundsValid(numberOfRounds))
     {
-        game.setNumberOfRounds(numberOfRounds);
-    }
-    else {
         numberOfRounds = window.prompt("Sorry, that value is invalid. Please enter a number from 1-5."); //Prompt for user input again.
-        numberOfRounds = parseInt(numberOfRounds, 10); //Cast string to integer.
-        if (game.isNumberOfRoundsValid(numberOfRounds))
-        {
-            game.setNumberOfRounds(numberOfRounds);
-        } else {
-            window.alert("Invalid value. Game Over!");
-            console.log("Game Over!");
-        }
     }
+    game.setNumberOfRounds(numberOfRounds);
 
     //*********************************ADD CODE HERE *************************************/
     // Call playRound() with a parameter of the round count (1 thru numberOfRounds) for each round 
